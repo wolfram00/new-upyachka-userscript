@@ -16,6 +16,7 @@
 			$.ajax({
 				"url": up4k.config.apiUrl,
 				"data": {
+					"method": "comment.info",
 					"access_token": access_token,
 					"id": up4kURL[1],
 				},
