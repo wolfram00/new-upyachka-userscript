@@ -21,7 +21,7 @@
 				},
 				"success": function (data) {
 					if(data.success) {
-						success = data.success;
+						var success = data.success;
 						if(typeof success !== "object")
 						{
 							up4k.error("API какого-то хуя вернул не объект");
@@ -30,19 +30,19 @@
 						{
 							up4k.setTitle(`Комментарий #${up4kURL[1]}`);
 							$("#up4k").html(`<div id="commentPage"></div>`);
-							commentTemplate = _.template(up4k.templates.comment);
+							var commentTemplate = _.template(up4k.templates.comment);
 							commentTemplate = commentTemplate({comment: success, misc: {idInLink: false, replyLink: false}});
 							$("#commentPage").html(commentTemplate);
 						}
 					}
 					else {
-						error = data.error || "Ответ пуст";
+						var error = data.error || "Ответ пуст";
 						up4k.error(error);
 					}
 				},
 				"error": function (data)
 				{
-					errorString = `Ошибка сервера: ${data.status} ${data.statusText}`;
+					var errorString = `Ошибка сервера: ${data.status} ${data.statusText}`;
 					up4k.error(errorString);
 				}
 			});
